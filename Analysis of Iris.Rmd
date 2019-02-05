@@ -1,0 +1,24 @@
+---
+title: "Analysis of Iris"
+author: "Anindito De"
+date: "4 February 2019"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(plotly)
+```
+
+## Analysis of Iris
+
+```{r Analysis of Iris, message = FALSE, fig.height= 4, fig.align='center'}
+p <- ggplot(data = iris, aes(x = Sepal.Length, y = Petal.Length)) +
+geom_point(size = 4) +
+geom_smooth(aes(color = Species, fill = Species)) + 
+facet_wrap(~ Species)
+
+(gg <- ggplotly(p))
+```
